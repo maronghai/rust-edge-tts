@@ -18,7 +18,7 @@
 //!
 //! ```toml
 //! [dependencies]
-//! edge_tts = { package = "rust-tts", path = "../rust-tts" }
+//! edge-tts = { path = ".." }
 //! tokio = { version = "1", features = ["full"] }
 //! futures-util = "0.3"
 //! serde_json = "1"

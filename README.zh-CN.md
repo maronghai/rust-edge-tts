@@ -1,6 +1,8 @@
-# rust-tts 使用说明
+# edge-tts 使用说明
 
-`rust-tts` 是一个原生 Rust 实现的 Microsoft Edge 在线文本转语音客户端，提供可复用的 `edge_tts` 库，以及 `edge-tts`、`edge-playback` 两个命令行程序。
+`edge-tts` 是一个原生 Rust 实现的 Microsoft Edge 在线文本转语音客户端，提供可复用的 `edge_tts` 库，以及 `edge-tts`、`edge-playback` 两个命令行程序。
+
+命名约定：项目名和 Cargo 包名统一为 `edge-tts`；Rust 代码使用 `edge_tts` 导入库，因为 Rust 标识符使用下划线。主合成命令为 `edge-tts`，配套播放命令为 `edge-playback`。
 
 ## 功能
 
@@ -261,7 +263,7 @@ HTTP 代理 URL 可以包含基本认证信息。没有指定 `--proxy` 时，�
 
 ```toml
 [dependencies]
-edge_tts = { package = "rust-tts", path = ".." }
+edge-tts = { path = ".." }
 tokio = { version = "1", features = ["full"] }
 futures-util = "0.3"
 serde_json = "1"

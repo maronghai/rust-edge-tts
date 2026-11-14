@@ -1,6 +1,8 @@
-# rust-tts
+# edge-tts
 
 A native Rust client and command-line interface for Microsoft's Edge online text-to-speech service. The package provides the `edge_tts` library together with `edge-tts` and `edge-playback` binaries.
+
+Naming: the project and Cargo package are `edge-tts`; Rust code imports the library as `edge_tts` because Rust identifiers use underscores. The main synthesis command is `edge-tts`, and the companion playback command is `edge-playback`.
 
 ## Features
 
@@ -175,7 +177,7 @@ Add the local crate as a dependency when embedding the library in another Rust a
 
 ```toml
 [dependencies]
-edge_tts = { package = "rust-tts", path = ".." }
+edge-tts = { path = ".." }
 tokio = { version = "1", features = ["full"] }
 futures-util = "0.3"
 serde_json = "1"
