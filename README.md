@@ -1,8 +1,10 @@
 # edge-tts
 
+**Project name: `edge-tts`**
+
 A native Rust client and command-line interface for Microsoft's Edge online text-to-speech service. The package provides the `edge_tts` library together with `edge-tts` and `edge-playback` binaries.
 
-Naming: the project and Cargo package are `edge-tts`; Rust code imports the library as `edge_tts` because Rust identifiers use underscores. The main synthesis command is `edge-tts`, and the companion playback command is `edge-playback`.
+Naming: the project, repository, and Cargo package are `edge-tts`; Rust code imports the library as `edge_tts` because Rust identifiers use underscores. The main synthesis command is `edge-tts`, and the companion playback command is `edge-playback`.
 
 ## Features
 
@@ -185,16 +187,9 @@ serde_json = "1"
 
 ### API reference and verified examples
 
-Build the Rust API reference with `cargo doc --no-deps`. To open it with Cargo,
-run `cargo doc --no-deps --open`; the library entry is `edge_tts`.
-Run `cargo test --doc` to compile all rustdoc examples and execute offline ones.
-Network and file-output examples are marked `no_run`: they are compiled, not
-executed by documentation tests.
+Build the Rust API reference with `cargo doc --no-deps`. To open it with Cargo, run `cargo doc --no-deps --open`; the library entry is `edge_tts`. Run `cargo test --doc` to compile all rustdoc examples and execute offline ones. Network and file-output examples are marked `no_run`: they are compiled, not executed by documentation tests.
 
-The reference documents all exported library types and methods, configuration
-fields, event units, JSON representation, error variants, text helpers, and
-signing helpers. Start with the crate overview, then `Communicate`, `TtsConfig`,
-`TtsChunk`, `SubMaker`, and `VoicesManager`.
+The reference documents all exported library types and methods, configuration fields, event units, JSON representation, error variants, text helpers, and signing helpers. Start with the crate overview, then `Communicate`, `TtsConfig`, `TtsChunk`, `SubMaker`, and `VoicesManager`.
 
 | Operation | Async API | Blocking API |
 |---|---|---|
@@ -204,17 +199,9 @@ signing helpers. Start with the crate overview, then `Communicate`, `TtsConfig`,
 | Filter cached records | `VoicesManager::find` | Same local method |
 | Render SRT | `SubMaker::feed`, `get_srt` | Same local methods |
 
-Library save methods create or truncate files, do not create parent directories,
-and do not check for path collisions. Use distinct output paths. Failures can
-leave partial files, even when a reused instance fails after file creation.
-All synthesis entry points share one single-use state; construct a new request
-for a retry. Async streams begin on first poll. Dropping a blocking iterator
-disconnects its channel; worker exit may wait for an in-flight network operation.
+Library save methods create or truncate files, do not create parent directories, and do not check for path collisions. Use distinct output paths. Failures can leave partial files, even when a reused instance fails after file creation. All synthesis entry points share one single-use state; construct a new request for a retry. Async streams begin on first poll. Dropping a blocking iterator disconnects its channel; worker exit may wait for an in-flight network operation.
 
-Synthesis `receive_timeout` applies to individual sends/receives, while
-`list_voices_with_timeout` uses a total HTTP request deadline for its `receive`
-argument. Blocking methods block their caller, even when called from async code.
-`VoicesManager::find` uses case-sensitive exact JSON matching, unlike CLI filters.
+Synthesis `receive_timeout` applies to individual sends/receives, while `list_voices_with_timeout` uses a total HTTP request deadline for its `receive` argument. Blocking methods block their caller, even when called from async code. `VoicesManager::find` uses case-sensitive exact JSON matching, unlike CLI filters.
 
 Example of handling errors without discarding their type:
 

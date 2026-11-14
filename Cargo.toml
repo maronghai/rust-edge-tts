@@ -1,6 +1,6 @@
 [package]
 name = "edge-tts"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 description = "Rust client and CLI for Microsoft Edge online text-to-speech"
 
