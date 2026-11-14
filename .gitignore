@@ -1,0 +1,28 @@
+# Rust build output
+target/
+
+# Local compiled binaries
+*.exe
+*.pdb
+
+# Generated speech outputs
+*.mp3
+*.wav
+*.ogg
+*.srt
+*.jsonl
+
+# Local logs and temporary files
+*.log
+*.tmp
+*.temp
+.tmp/
+_temp/
+
+# Editor and OS files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
